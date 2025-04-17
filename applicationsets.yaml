@@ -6,25 +6,25 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/your-username/my-gitops-repo
+        repoURL: https://github.com/DebjitChak/webapp-multienv.git
         revision: HEAD
         directories:
-          - path: apps/nginx/*
+          - path: environments/*
   template:
     metadata:
       name: 'nginx-{{path.basename}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/your-username/my-gitops-repo
+        repoURL: https://github.com/DebjitChak/webapp-multienv.git
         targetRevision: HEAD
         path: charts/nginx
         helm:
           valueFiles:
-            - ../../apps/nginx/{{path.basename}}/values.yaml
+            - ../../environments/{{path.basename}}/values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'nginx-{{path.basename}}'
+        namespace: default
       syncPolicy:
         automated:
           prune: true
