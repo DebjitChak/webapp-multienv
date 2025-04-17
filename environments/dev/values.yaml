@@ -83,4 +83,4 @@ affinity: {}
 # values.yaml
 htmlPage:
   title: "Custom NGINX Page"
-  message: "Hello from version 0.2.0!"
+  message: "Hello from dev version 0.2.0!"
