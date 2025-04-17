@@ -1,0 +1,11 @@
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html
+data:
+  index.html: |
+    <html>
+      <head><title>{{.Values.htmlPage.title}}</title></head>
+      <body><h1>{{.Values.htmlPage.message}}</h1></body>
+    </html>
